@@ -69,24 +69,6 @@ $sitetoplamgosterim 	= 0;
 }
 //Site Durum Ayarları Bitiş
 
-//Kara Liste Ayarları
-$KaraListe = mysql_query("SELECT * from ".$onek."karaliste");
-
-if(mysql_num_rows($KaraListe)!=0)
-{
-    while($Kara = mysql_fetch_assoc($KaraListe))
-    {
-$KaraIP        = $Kara['ip'];
-$KaraKonum   = $Kara['konum'];
-    }
-}
-else
-  {
-  $KaraIP        = "0";
-$KaraKonum   = "-";
-}
-//Kara Liste Ayarları Bitiş
-
 
 //Tarih işlemleri
 date_default_timezone_set('Europe/Istanbul');
@@ -188,6 +170,9 @@ function getUserCountry($ip) {
 
 function IPAdres()
 {
+
+//$Site = file_get_contents("http://ipbak.com/");
+//preg_match_all('@<div class="ip_no">(.*?)</div>@si',$Site,$DegerDonder);
 
 $Site = @file_get_contents("http://wWw.ip-adres.com/");
 

@@ -45,10 +45,6 @@ if(mysql_num_rows($sonuc)!=0)
 {
     while($oku = mysql_fetch_assoc($sonuc))
     {
-      if($oku['sarki_goruntulenme'] == 0)
-      {
-        break;
-      }
     ?>
                 <a href="index.php?sarki=<?php echo $oku['sarki_id']; ?>">
             <li class="list-group-item">

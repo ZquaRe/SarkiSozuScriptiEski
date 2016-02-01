@@ -2,6 +2,17 @@
 require_once('Sistem/fonksiyon.php');
 ?>
 
+
+<?php 
+//Sübühaneke Duası 
+/*Sübhânekellâhümme ve bi hamdik
+ve tebârakesmük
+ve teâlâ ceddük
+(vecelle senâük)*
+ve lâ ilâhe ğayrük.
+*/
+?>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
 </script>
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
@@ -143,28 +154,19 @@ require_once('Sistem/fonksiyon.php');
   <?php if($sitedurum == 0) //Site Açıksa
   {
   ?>
-<div class="container">
-<center>
+  <div class="container">
+    <center>
 <div class='alert alert-warning' role='alert'> <strong>UYARI!</strong><br> Ulaşmaya çalıştığınız sayfa şuanda bakım çalışması nedeniyle kapalıdır. Lütfen daha sonra tekrar deneyiniz. <br> Anlayışınız için teşekkür ederiz. 
-<img src="img/ikon/gulucuk.png" height="23">
+  <img src="img/ikon/gulucuk.png" height="23">
 </center>
 </div>
 <?php
   }
   else
   {
-  if($KaraIP == trim(IPAdres()))
-    {
-      ?>
-<div class="container">
-<center>
-<div class='alert alert-danger' role='alert'> <strong>Üzgünüz!</strong><br>Kara listede gözüküyorsunuz,bu sayfayı görüntülemeye yetkiniz yok. <img src="img/ikon/uzgun.png" height="23"></center>
-</div>
-<?php
-    }
-    else//Kara Liste
-    { //KaraListe
+  
   //ARAMA EKRANI
+
     if(get('ara'))
     {
   if(get('tip') == 'sarki')
@@ -278,7 +280,7 @@ else
     }
     else
     {
-$Arama = mysql_query("SELECT * from ".$onek."sarki where sarki_adi LIKE '".get('ara')."%'");
+        $Arama = mysql_query("SELECT * from ".$onek."sarki where sarki_adi LIKE '".get('ara')."%'");
 
 if(mysql_num_rows($Arama)!=0)
 {
@@ -338,69 +340,27 @@ else
     {
       if(get('sarki'))
           {
-
-//MYSQL
-$SarkiIcerik = mysql_query("SELECT * from ".$onek."sarki where sarki_id='".get('sarki')."'");
-
-if(mysql_num_rows($SarkiIcerik)!=0)
-{
-while($Getir = mysql_fetch_assoc($SarkiIcerik))
-{
 ?>
 <div class="container">
-<h4 class="text-center">
-<?php echo $Getir['sarki_sarkici']; ?> - <?php echo $Getir['sarki_adi']; ?>
-</h4>
 <h5 class="text-center">
-<small><b><?php echo $Getir['sarki_ekleyen']; ?></b> tarafından <b><?php echo timeConvert($Getir['sarki_tarih']); ?></b> oluşturuldu</small>
+Şarkı Adı
+
+</small>
 </h5>
 <div class="col-md-3" style="display: block;"></div>
 <div class="col-md-8" style="display: block;">
 
             <?php
-if($Getir['sarki_link'])
-{
-              YoutubeResim($Getir['sarki_link']);
-              ?>
-              <br> <br>
-              <?php
-              YoutubeVideo($Getir['sarki_link']);
-?>
-<br>
-<?php
-}
-else
-{
-  echo '<br>';
-}
-?>
-<div class="col-md-3" style="display: block;"></div>
-<div class="col-md-8" style="display: block;">
-  <?php
-      echo $Getir['sarki_icerik'];
+            YoutubeResim("https://www.youtube.com/watch?v=BbQ2KSuITqY");?>
+            <br>
+            <?php
+            YoutubeVideo("https://www.youtube.com/watch?v=BbQ2KSuITqY");
             ?>
- </div> </div>
-
           </div>
         </div>
       </div>
           <?php
-}
-}
-else
-{
-?>
-<div class="container">
-<div class="col-md-1" style="display: block;"></div>
-<div class="col-md-10" style="display: block;">
-<div class="alert alert-warning text-center" role="alert"> <strong>Eşleşen bir sonuç bulunamadı. </strong><img src="img/ikon/uzgun.png" width="25"/></div></ul>
-</div>
-</div>
-</div>
-</div>
-<?php
-}
-}
+        }
           else
           {
 
@@ -413,9 +373,7 @@ else
 
 
 
-<?php 
-}//Site Açıksa Bloğu
-}//KaraListe Bloğu?>
+<?php }//Site Açıksa Bloğu ?>
 
 <!-- Footer -->
 <?php require_once('goruntulenme.php'); ?>

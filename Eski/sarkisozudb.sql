@@ -1,9 +1,9 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.2.7.1
 -- http://www.phpmyadmin.net
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 01 Şub 2016, 16:50:42
+-- Üretim Zamanı: 01 Şub 2016, 03:21:18
 -- Sunucu sürümü: 5.6.20
 -- PHP Sürümü: 5.5.15
 
@@ -30,19 +30,14 @@ CREATE TABLE IF NOT EXISTS `db_ip` (
 `id` int(11) NOT NULL,
   `ip` varchar(255) NOT NULL,
   `konum` varchar(255) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Tablo için tablo yapısı `db_karaliste`
+-- Tablo döküm verisi `db_ip`
 --
 
-CREATE TABLE IF NOT EXISTS `db_karaliste` (
-`id` int(11) NOT NULL,
-  `ip` varchar(255) NOT NULL,
-  `konum` varchar(100) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+INSERT INTO `db_ip` (`id`, `ip`, `konum`) VALUES
+(2, '127.0.0.1', 'TR');
 
 -- --------------------------------------------------------
 
@@ -59,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `db_sarki` (
   `sarki_ekleyen` varchar(255) NOT NULL,
   `sarki_anahtar` varchar(255) NOT NULL,
   `sarki_aciklama` varchar(255) NOT NULL,
-  `sarki_link` varchar(255) DEFAULT NULL,
+  `sarki_link` varchar(255) NOT NULL,
   `sarki_goruntulenme` int(11) NOT NULL DEFAULT '0',
   `sarki_tarih` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
@@ -70,7 +65,8 @@ CREATE TABLE IF NOT EXISTS `db_sarki` (
 
 INSERT INTO `db_sarki` (`sarki_id`, `sarki_sarkici`, `sarki_adi`, `sarki_seo`, `sarki_icerik`, `sarki_ekleyen`, `sarki_anahtar`, `sarki_aciklama`, `sarki_link`, `sarki_goruntulenme`, `sarki_tarih`) VALUES
 (13, 'Ece Seçkin', 'Follow Me', 'Follow Me - Ece Seçkin\r\n', 'Follow Me - Ece Seçkin\r\n', 'Follow Me - Ece Seçkin\r\n', 'Follow Me - Ece Seçkin\r\n', 'Follow Me - Ece Seçkin\r\n', '', 2, '2016-01-28 16:41:08'),
-(14, 'İrem Derici', 'Aşk Eşittir Biz', 'İrem Derici - Aşk Eşittir Biz', 'İrem Derici - Aşk Eşittir Biz', 'İrem Derici - Aşk Eşittir Biz', 'İrem Derici - Aşk Eşittir Biz', 'İrem Derici - Aşk Eşittir Biz', 'https://www.youtube.com/watch?v=rzegUBbEyIM', 1, '2016-01-28 16:44:07');
+(14, 'İrem Derici', 'Aşk Eşittir Biz', 'İrem Derici - Aşk Eşittir Biz', 'İrem Derici - Aşk Eşittir Biz', 'İrem Derici - Aşk Eşittir Biz', 'İrem Derici - Aşk Eşittir Biz', 'İrem Derici - Aşk Eşittir Biz', '', 1, '2016-01-28 16:44:07'),
+(15, 'xd', 'Fatma', 'Gül', 'qwe', 'qwe', 'qwe', 'qwe', '', 0, '2016-01-31 22:02:06');
 
 -- --------------------------------------------------------
 
@@ -90,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `db_site` (
 --
 
 INSERT INTO `db_site` (`db_site_id`, `db_site_durum`, `db_site_online`, `db_site_toplam_goruntulenme`) VALUES
-(5, 1, 1, 13);
+(5, 1, 1, 12);
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -100,12 +96,6 @@ INSERT INTO `db_site` (`db_site_id`, `db_site_durum`, `db_site_online`, `db_site
 -- Tablo için indeksler `db_ip`
 --
 ALTER TABLE `db_ip`
- ADD PRIMARY KEY (`id`);
-
---
--- Tablo için indeksler `db_karaliste`
---
-ALTER TABLE `db_karaliste`
  ADD PRIMARY KEY (`id`);
 
 --
@@ -128,12 +118,7 @@ ALTER TABLE `db_site`
 -- Tablo için AUTO_INCREMENT değeri `db_ip`
 --
 ALTER TABLE `db_ip`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- Tablo için AUTO_INCREMENT değeri `db_karaliste`
---
-ALTER TABLE `db_karaliste`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- Tablo için AUTO_INCREMENT değeri `db_sarki`
 --
