@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.2.7.1
 -- http://www.phpmyadmin.net
 --
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `db_ip` (
 --
 
 INSERT INTO `db_ip` (`id`, `ip`, `konum`) VALUES
-(2, '78.184.214.232', 'TR');
+(2, '127.0.0.1', 'TR');
 
 -- --------------------------------------------------------
 
